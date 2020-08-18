@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: task11-config
+data:
+  DATABASE_1_HOST: postgres-1
+  DATABASE_1_USER: myuser
+  DATABASE_1_DB: myapp
+  DATABASE_2_HOST: postgres-2
+  DATABASE_2_USER: myuser
+  DATABASE_2_DB: myapp
+  DATABASE_3_HOST: postgres-3
+  DATABASE_3_USER: myuser
+  DATABASE_3_DB: myapp
+  CACHE_ENABLED: "1"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: task11-secret
+type: Opaque
+data:
+  DATABASE_1_PASSWORD: cGFzc3dk
+  DATABASE_1_PASSWORD_WITH_NEW_LINE: cGFzc3dkCg==
+  DATABASE_2_PASSWORD: cGFzc3dk
+  DATABASE_2_PASSWORD_WITH_NEW_LINE: cGFzc3dkCg==
+  DATABASE_3_PASSWORD: cGFzc3dk
+  DATABASE_3_PASSWORD_WITH_NEW_LINE: cGFzc3dkCg==

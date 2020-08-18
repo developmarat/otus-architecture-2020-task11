@@ -1,0 +1,102 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task11-deployment
+  labels:
+    app: task11-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: task11-app
+  template:
+    metadata:
+      labels:
+        app: task11-app
+    spec:
+      containers:
+        - name: task11
+          image: developmarat/task11:v1
+          env:
+            - name: DATABASE_1_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_1_HOST
+            - name: DATABASE_1_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_1_DB
+            - name: DATABASE_1_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_1_USER
+            - name: DATABASE_1_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: task11-secret
+                  key: DATABASE_1_PASSWORD
+            - name: DATABASE_2_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_2_HOST
+            - name: DATABASE_2_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_2_DB
+            - name: DATABASE_2_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_2_USER
+            - name: DATABASE_2_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: task11-secret
+                  key: DATABASE_2_PASSWORD
+            - name: DATABASE_3_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_3_HOST
+            - name: DATABASE_3_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_3_DB
+            - name: DATABASE_3_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_3_USER
+            - name: DATABASE_3_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: task11-secret
+                  key: DATABASE_3_PASSWORD
+            - name: CACHE_ENABLED
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: CACHE_ENABLED
+          ports:
+            - name: web
+              containerPort: 8000
+          livenessProbe:
+            httpGet:
+              port: 8000
+              path: /health
+            initialDelaySeconds: 135
+            periodSeconds: 5
+            timeoutSeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 8000
+              path: /health
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            failureThreshold: 20

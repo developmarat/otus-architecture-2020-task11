@@ -1,0 +1,57 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: task11-1-initdb
+spec:
+  template:
+    metadata:
+      name: task11-1-initdb
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: post-install-job
+          env:
+            - name: DATABASE_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_1_HOST
+            - name: DATABASE_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_1_DB
+            - name: DATABASE_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: task11-config
+                  key: DATABASE_1_USER
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: task11-secret
+                  key: DATABASE_1_PASSWORD
+          image: postgres:latest
+          command:
+            - sh
+            - "-c"
+            - |
+              until pg_isready -h $DATABASE_HOST;
+                do echo waiting for database; sleep 2;
+              done;
+              psql postgresql://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST/$DATABASE_DB <<'EOF'
+              create table product
+              (
+                  vendor_code  bigint not null
+                      constraint product_pk
+                          primary key,
+                  name          varchar(256),
+                  brand         varchar(256),
+                  model         varchar(256),
+                  diagonal_inch double precision,
+                  storage_gb    double precision,
+                  ram_gb        double precision,
+                  camera_pixel  double precision
+              );
+              EOF
+  backoffLimit: 0

@@ -1,0 +1,327 @@
+{
+	"info": {
+		"_postman_id": "9b4abb56-f4ce-49f7-b138-675f18a1522d",
+		"name": "Task 11",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create product Iphone 11",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3cde337-c41a-4fae-bafb-85fed1216d28",
+						"exec": [
+							"tests[\"[INFO] Request: \" + (('data' in request) ? request['data'] : '') ] = true\r",
+							"tests[\"[INFO] Response: \" + responseBody] = true"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Username",
+						"value": "pes",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vendorCode\":\"1\",\r\n    \"name\": \"Смартфон APPLE iPhone 11 64Gb, MWLT2RU/A, черный\",\r\n    \"brand\": \"apple\",\r\n    \"model\": \"11\",\r\n    \"diagonalInch\": \"6.1\",\r\n    \"storageGb\": \"64\",\r\n    \"ramGb\": \"4\",\r\n    \"cameraPixel\": \"12\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/otusapp/product",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"otusapp",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create product Iphone 7",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fe0540c-c4d4-4c0a-8514-7d01939cda25",
+						"exec": [
+							"tests[\"[INFO] Request: \" + (('data' in request) ? request['data'] : '') ] = true\r",
+							"tests[\"[INFO] Response: \" + responseBody] = true"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Username",
+						"value": "pes",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vendorCode\":\"2\",\r\n    \"name\": \"мартфон APPLE iPhone 7 32Gb, MN8X2RU/A, черный\",\r\n    \"brand\": \"apple\",\r\n    \"model\": \"7\",\r\n    \"diagonalInch\": \"4.7\",\r\n    \"storageGb\": \"32\",\r\n    \"ramGb\": \"4\",\r\n    \"cameraPixel\": \"12\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/otusapp/product",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"otusapp",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create product Iphone XR",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2b6f7218-5a33-45cf-b1c3-05c63d349d51",
+						"exec": [
+							"tests[\"[INFO] Request: \" + (('data' in request) ? request['data'] : '') ] = true\r",
+							"tests[\"[INFO] Response: \" + responseBody] = true"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Username",
+						"type": "text",
+						"value": "pes"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vendorCode\":\"3\",\r\n    \"name\": \"Смартфон APPLE iPhone XR 64Gb, MRY42RU/A, черный\",\r\n    \"brand\": \"apple\",\r\n    \"model\": \"11\",\r\n    \"diagonalInch\": \"6.1\",\r\n    \"storageGb\": \"64\",\r\n    \"ramGb\": \"5\",\r\n    \"cameraPixel\": \"11\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/otusapp/product",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"otusapp",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by vendorCode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "38bf0e31-99db-4034-b068-23c3c0a40b30",
+						"exec": [
+							"tests[\"[INFO] Request: \" + (('data' in request) ? request['data'] : '') ] = true\r",
+							"tests[\"[INFO] Response: \" + responseBody] = true"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Username",
+						"type": "text",
+						"value": "pes"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/otusapp/product/1",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"otusapp",
+						"product",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find products (cameraPixel=12)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "393bdfd1-08a4-46f5-a370-cc1cc86692d7",
+						"exec": [
+							"tests[\"[INFO] Request: \" + (('data' in request) ? request['data'] : '') ] = true\r",
+							"tests[\"[INFO] Response: \" + responseBody] = true"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Username",
+						"type": "text",
+						"value": "pes"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cameraPixel\": \"12\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/otusapp/product/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"otusapp",
+						"product",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find products (brand=apple)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0c3afd53-b1b0-41ae-b3ed-6b345f90ccdf",
+						"exec": [
+							"tests[\"[INFO] Request: \" + (('data' in request) ? request['data'] : '') ] = true\r",
+							"tests[\"[INFO] Response: \" + responseBody] = true"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Username",
+						"type": "text",
+						"value": "pes"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"brand\": \"apple\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}/otusapp/product/find",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"otusapp",
+						"product",
+						"find"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "bbe37341-1642-4ebd-b49a-675bef226962",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fa89024a-8d1e-4b6d-876e-3ae1e3846a2c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "4e684b99-b57f-4d03-8766-a4ccb47919b4",
+			"key": "BASE_URL",
+			"value": "arch.homework"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
